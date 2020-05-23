@@ -1,8 +1,10 @@
-FROM ubuntu:20.04
+FROM debian:10-slim
 
-ENV DEBIAN_FRONTEND=noninteractive 
-RUN apt-get update && \
-    apt-get update && \
-    apt-get install -y certbot docker.io
+ENV DEBIAN_FRONTEND=noninteractive
+RUN  apt-get update && \
+        apt-get install --no-install-recommends -y \
+        certbot \
+        docker.io && \
+        rm -rf /var/lib/apt/lists/*
 COPY deploy-hook /deploy-hook
 RUN chmod +x /deploy-hook
