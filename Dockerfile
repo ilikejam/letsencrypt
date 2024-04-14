@@ -1,4 +1,4 @@
-FROM debian:10-slim
+FROM debian:bookworm-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN  apt-get update && \
